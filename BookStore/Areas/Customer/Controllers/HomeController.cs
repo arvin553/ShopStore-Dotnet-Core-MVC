@@ -20,14 +20,14 @@ namespace BookStore.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
-            return View(productList);
+            IEnumerable<Product> companyList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            return View(companyList);
         }
 
-        public IActionResult Details(int productId)
+        public IActionResult Details(int companyId)
         {
-            Product product = _unitOfWork.Product.Get(u =>u.Id== productId, includeProperties: "Category");
-            return View(product);
+            Product company = _unitOfWork.Product.Get(u =>u.Id== companyId, includeProperties: "Category");
+            return View(company);
         }
 
         public IActionResult Privacy()

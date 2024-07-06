@@ -14,6 +14,8 @@ namespace Book.DataAccess.Data
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<Company> Companies { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,6 +25,11 @@ namespace Book.DataAccess.Data
                 new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "SciFi", DisplayOrder = 2 },
                 new Category { Id = 3, Name = "History", DisplayOrder = 3 }
+                );
+
+            modelBuilder.Entity<Company>().HasData(
+                new Company { Id = 1, Name = "Giga", StreetAddress = "123 Tech St", City = "Tech City", PostalCode = "123", PhoneNumber = "8211123321" },
+                new Company { Id = 2, Name = "HTC", StreetAddress = "123 Xindain St", City = "New Taipei City", PostalCode = "231", PhoneNumber = "8215333451" }
                 );
 
             modelBuilder.Entity<Product>().HasData(
